@@ -1,4 +1,5 @@
 ﻿using Atlassian.Jira;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace WpfDip
 {
@@ -44,14 +46,9 @@ namespace WpfDip
 
         private void btFolder_Click(object sender, RoutedEventArgs e) //возможно придется удалять 
         {
-            //FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-
-            //DialogResult result = folderBrowser.ShowDialog();
-
-            //if (!string.IsNullOrWhiteSpace(folderBrowser.SelectedPath))
-            //{
-            //    string[] files = Directory.GetFiles(folderBrowser.SelectedPath);
-            //}
+            SaveFileDialog sd = new SaveFileDialog();
+            sd.ShowDialog();
+            tbPath.Text = sd.FileName;
         }
 
         private void btExport_Click(object sender, RoutedEventArgs e)
