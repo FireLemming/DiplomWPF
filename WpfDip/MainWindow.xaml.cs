@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WpfDip
 {
     /// <summary>
@@ -30,44 +31,37 @@ namespace WpfDip
 
         private void btView_Click(object sender, RoutedEventArgs e)
         {
-            Thread.Sleep(100);
             Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();
             issueList.AddRange(prog.CreateIssuesList(filt));
             dgAll.ItemsSource = issueList;
             MessageBox.Show("Выборка задач завершена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void btCSV_Click(object sender, RoutedEventArgs e)
+        private void btExportCSV_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (dgAll.Items.Count > 0)
             {
-                prog.CSVWork(issueList, tbPathCSV.Text + ".csv");
+                ExportWindow ew = new ExportWindow(issueList, "csv");
+                this.Hide();
+                ew.ShowDialog();
+                this.Show();
             }
-            catch
-            {
-                MessageBox.Show("Ошибка пути. Попробуйте снова", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            //добавить всплывающее окно или ещё что для пути файла
+            else MessageBox.Show("Сначала выберите задачи", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void btJSON_Click(object sender, RoutedEventArgs e)
+        private void btExportJSON_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (dgAll.Items.Count > 0)
             {
-                prog.JsonWork(issueList, tbPathJSON.Text + ".json");
+                ExportWindow ew = new ExportWindow(issueList, "json");
+                this.Hide();
+                ew.ShowDialog();
+                this.Show();
             }
-            catch
-            {
-                MessageBox.Show("Ошибка пути. Попробуйте снова", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-       
-            //выбрать, экспорт будет либо из таблицы, лиюо из списка задач, выдаваемых методом.
-        }
-        
+            else MessageBox.Show("Сначала выберите задачи", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+        }        
 
-        private void btDel_Click(object sender, RoutedEventArgs e)
+        private void btDel_Click(object sender, RoutedEventArgs e) 
         {
             CheckBox cb = new CheckBox();
             List<IssueWork> RemoveList = new List<IssueWork>();
@@ -84,5 +78,7 @@ namespace WpfDip
             dgAll.ItemsSource = null;
             dgAll.ItemsSource = issueList;
         }
+
+        
     }
 }
