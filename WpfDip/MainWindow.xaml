@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDip"
         mc:Ignorable="d"
-        Title="Работа с задачами" Height="550" Width="1000" MinWidth="1000" MinHeight="600">
+        Title="Работа с задачами" Height="650" Width="1050" MinWidth="1050" MinHeight="650">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="210"></ColumnDefinition>
-            <ColumnDefinition> </ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -27,19 +27,19 @@
         <Button x:Name="btDel" Content="Удалить" Margin="0,0,470,22" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btDel_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="tbPathCSV" Margin="0,0,225,58" TextWrapping="Wrap" Width="75" Height="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="tbPathJSON"  Margin="0,0,48,58" TextWrapping="Wrap" Width="74" Height="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
-        <CheckBox x:Name="cbSummary" Content="Аннотация" Grid.Column="0" Margin="10,30,58,398" Grid.Row="1"/>
-        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,374" Grid.Row="1"/>
-        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,350" Grid.Row="1"/>
-        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,326" Grid.Row="1"/>
-        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,126,58,302" Grid.Row="1"/>
-        <CheckBox x:Name="cbCreated" Content="Время создания" Grid.Column="0" Margin="10,150,58,278" Grid.Row="1"/>
-        <CheckBox x:Name="cbEnvironment" Content="Окружение" Grid.Column="0" Margin="10,174,58,254" Grid.Row="1"/>
-        <CheckBox x:Name="cbProject" Content="Проект" Grid.Column="0" Margin="10,198,58,229" Grid.Row="1"/>
-        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,205" Grid.Row="1"/>
-        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,181" Grid.Row="1"/>
-        <CheckBox x:Name="cbParamCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,157" Grid.Row="1"/>
-        <CheckBox x:Name="cbParamFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,565,133" Grid.Row="1" Grid.ColumnSpan="2" />
-        <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="220,13,220,0" VerticalAlignment="Stretch" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,30,58,485" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,461" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,437" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,413" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,126,58,389" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbCreated" Content="Время создания" Grid.Column="0" Margin="10,150,58,365" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbEnvironment" Content="Окружение" Grid.Column="0" Margin="10,174,58,341" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbProject" Content="Проект" Grid.Column="0" Margin="10,198,58,316" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,292" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,268" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbParamCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,244" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbParamFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,765,220" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" />
+        <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,6,0,6" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="20"/>
     </Grid>
 
