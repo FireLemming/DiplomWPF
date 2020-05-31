@@ -22,8 +22,10 @@ namespace WpfDip
     /// </summary>
     public partial class MainWindow : Window
     {
+        Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();
         Program prog = new Program();
         List<IssueWork> issueList = new List<IssueWork>();
+        //string filtType = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +33,6 @@ namespace WpfDip
 
         private void btView_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();
             issueList.AddRange(prog.CreateIssuesList(filt));
             dgAll.ItemsSource = issueList;
             MessageBox.Show("Выборка задач завершена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -79,6 +80,12 @@ namespace WpfDip
             dgAll.ItemsSource = issueList;
         }
 
-        
+        private void cbSummary_Checked(object sender, RoutedEventArgs e)
+        {
+            FilterWindow fw = new FilterWindow(filt, "summary");
+            this.Hide();
+            fw.ShowDialog();
+            this.Show();
+        }
     }
 }
