@@ -27,16 +27,16 @@
         <Button x:Name="btExportJSON" Content="JSON" Margin="0,0,40,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportJSON_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
         <Button x:Name="btDel" Content="Удалить" Margin="0,0,470,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btDel_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2"/>
         <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,30,58,485" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbSummary_Click"/>
-        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,461" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,437" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,413" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,126,58,389" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbCreated" Content="Время создания" Grid.Column="0" Margin="10,150,58,365" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbEnvironment" Content="Окружение" Grid.Column="0" Margin="10,174,58,341" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbProject" Content="Проект" Grid.Column="0" Margin="10,198,58,316" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,292" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,268" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-        <CheckBox x:Name="cbParamCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,244" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,461" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbKey_Click" />
+        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,437" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbPriority_Click" />
+        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,413" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbStatus_Click" />
+        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,126,58,389" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbType_Click" />
+        <CheckBox x:Name="cbCreated" Content="Время создания" Grid.Column="0" Margin="10,150,58,365" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbCreated_Click" />
+        <CheckBox x:Name="cbEnvironment" Content="Окружение" Grid.Column="0" Margin="10,174,58,341" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbEnvironment_Click"/>
+        <CheckBox x:Name="cbProject" Content="Проект" Grid.Column="0" Margin="10,198,58,316" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbProject_Click"/>
+        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,292" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" />
+        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,268" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" />
+        <CheckBox x:Name="cbParamCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,244" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" />
         <CheckBox x:Name="cbParamFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,765,220" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" />
         <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,6,0,6" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="20"/>

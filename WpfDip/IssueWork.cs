@@ -6,13 +6,12 @@ namespace WpfDip
 {
     public class IssueWork
     {
-        public IssueWork(string summary, string key, string priority, string status, string statusChangeCount, string type, string created, string environment, string project, string assigneeUser, string reporterUser, string description)
+        public IssueWork(string summary, string key, string priority, string status, string type, string created, string environment, string project, string assigneeUser, string reporterUser, string description, string statusChangeCount)
         {
             Summary = summary;
             Key = key;
             Priority = priority;
             Status = status;
-            StatusChangeCount = statusChangeCount;
             Type = type;
             Created = created;
             Environment = environment;
@@ -20,12 +19,12 @@ namespace WpfDip
             AssigneeUser = assigneeUser;
             ReporterUser = reporterUser;
             Description = description;
+            StatusChangeCount = statusChangeCount;
         }
         public string Summary { get; set; }
         public string Key { get; set; }
         public string Priority { get; set; }
         public string Status { get; set; }
-        public string StatusChangeCount { get; set; }
         public string Type { get; set; }
         public string Created { get; set; }
         public string Environment { get; set; }
@@ -33,5 +32,6 @@ namespace WpfDip
         public string ReporterUser { get; set; }
         public string AssigneeUser { get; set; }
         public string Description { get; set; }
+        public string StatusChangeCount { get; set; }
     }
 }

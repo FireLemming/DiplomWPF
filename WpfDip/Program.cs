@@ -61,7 +61,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>//если условие выполняется - нужная задача записывается список
                     {
-                        if (filt["summary"].Where(t => t == c.Summary).Count() > 0 && !issuesList.Contains(c))//Возвращает все задачи, где проект в Jira равен пользовательскому и задача не записана в список
+                        if (filt["summary"].Where(t => t == c.Summary.ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))//Возвращает все задачи, где проект в Jira равен пользовательскому и задача не записана в список
                             return true;
                         else return false;
                     }).ToList());
@@ -75,7 +75,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["key"].Where(t => t == c.Key.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["key"].Where(t => t == c.Key.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -89,7 +89,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["priority"].Where(t => t == c.Priority.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["priority"].Where(t => t == c.Priority.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -104,7 +104,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["status"].Where(t => t == c.Status.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["status"].Where(t => t == c.Status.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -118,7 +118,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["type"].Where(t => t == c.Type.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["type"].Where(t => t == c.Type.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -132,7 +132,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["created"].Where(t => t == c.Created.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["created"].Where(t => t == c.Created.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -146,7 +146,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["environment"].Where(t => t == c.Environment.ToString()).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["environment"].Where(t => t == c.Environment.ToString().ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -160,7 +160,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["project"].Where(t => t == c.Project).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["project"].Where(t => t == c.Project.ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -174,7 +174,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["assigneeuser"].Where(t => t == c.AssigneeUser.DisplayName).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["assigneeuser"].Where(t => t == c.AssigneeUser.DisplayName.ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -188,7 +188,7 @@ namespace WpfDip
                 issuesList.AddRange(
                     issues.Where(c =>
                     {
-                        if (filt["reporteruser"].Where(t => t == c.ReporterUser.DisplayName).Count() > 0 && !issuesList.Contains(c))
+                        if (filt["reporteruser"].Where(t => t == c.ReporterUser.DisplayName.ToLower().Replace(" ", "")).Count() > 0 && !issuesList.Contains(c))
                             return true;
                         else return false;
                     }).ToList());
@@ -207,7 +207,6 @@ namespace WpfDip
         /// </summary>
         static string[] FillingOutputArray(Atlassian.Jira.Issue c, Dictionary<string, List<string>> filt)
         {
-
             string[] parMas = new string[12];//создание массива, в котором будут храниться значения параметров из Jira
             if (c.Summary != null)
             {
@@ -233,56 +232,55 @@ namespace WpfDip
             }
             else parMas[3] = "Статус не задан";
 
-            parMas[4] = StatusChangeCountWork(c, filt);
-
             if (c.Type != null)
             {
-                parMas[5] = c.Type.ToString();
+                parMas[4] = c.Type.ToString();
             }
-            else parMas[5] = "Тип не задан";
+            else parMas[4] = "Тип не задан";
 
             if (c.Created != null)
             {
-                parMas[6] = c.Created.ToString();
+                parMas[5] = c.Created.ToString();
             }
-            else parMas[6] = "Время создания не задано";
+            else parMas[5] = "Время создания не задано";
 
             if (c.Environment != null)
             {
-                parMas[7] = c.Environment;
+                parMas[6] = c.Environment;
             }
-            else parMas[7] = "Окружение не задано";
+            else parMas[6] = "Окружение не задано";
 
             if (c.Project != null)
             {
-                parMas[8] = c.Project;
+                parMas[7] = c.Project;
             }
-            else parMas[8] = "Принадлежность к проекту не задана";
+            else parMas[7] = "Принадлежность к проекту не задана";
 
             if (c.AssigneeUser != null)
-                parMas[9] = c.AssigneeUser.DisplayName;
+                parMas[8] = c.AssigneeUser.DisplayName;
             else
-                parMas[9] = "Исполнитель не задан";
+                parMas[8] = "Исполнитель не задан";
 
             if (c.ReporterUser != null)
             {
-                parMas[10] = c.ReporterUser.DisplayName;
+                parMas[9] = c.ReporterUser.DisplayName;
             }
-            else parMas[10] = "Создатель не задан";
+            else parMas[9] = "Создатель не задан";
 
             if (c.Description != null)
             {
-                parMas[11] = c.Description;
+                parMas[10] = c.Description;
             }
-            else parMas[11] = "Описание не задано";
+            else parMas[10] = "Описание не задано";
+
+            parMas[11] = StatusChangeCountWork(c, filt);
 
             return parMas;
         }
         /// <summary>
         /// Метод для подсчёта изменений статуса
         /// </summary>
-        static string StatusChangeCountWork
-            (Atlassian.Jira.Issue c, Dictionary<string, List<string>> filt)
+        static string StatusChangeCountWork (Atlassian.Jira.Issue c, Dictionary<string, List<string>> filt)
         {
             var changeLog = jiraLog.Issues.GetChangeLogsAsync(c.Key.ToString()).Result;
             int count = 0;
@@ -331,28 +329,28 @@ namespace WpfDip
                     "Key" + ";" +
                     "Priority" + ";" +
                     "Status" + ";" +
-                    "StatusChangeCount" + ";" +
                     "Type" + ";" +
                     "Created" + ";" +
                     "Environment" + ";" +
                     "Project" + ";" +
                     "AssigneeUser" + ";" +
                     "ReporterUser" + ";" +
-                    "Description");
+                    "Description" + ";" +
+                    "StatusChangeCount");
             foreach (var s in issueList)
             {
                 csv.AppendLine(Regex.Replace(s.Summary, @"\s+", " ") + ";" +
                     Regex.Replace(s.Key, @"\s+", " ") + ";" +
                     Regex.Replace(s.Priority, @"\s+", " ") + ";" +
                     Regex.Replace(s.Status, @"\s+", " ") + ";" +
-                    Regex.Replace(s.StatusChangeCount, @"\s+", " ") + ";" +
                     Regex.Replace(s.Type, @"\s+", " ") + ";" +
                     Regex.Replace(s.Created, @"\s+", " ") + ";" +
                     Regex.Replace(s.Environment, @"\s+", " ") + ";" +
                     Regex.Replace(s.Project, @"\s+", " ") + ";" +
                     Regex.Replace(s.AssigneeUser, @"\s+", " ") + ";" +
                     Regex.Replace(s.ReporterUser, @"\s+", " ") + ";" +
-                    Regex.Replace(s.Description, @"\s+", " "));
+                    Regex.Replace(s.Description, @"\s+", " ") + ";" +
+                    Regex.Replace(s.StatusChangeCount, @"\s+", " "));
             }
 
             File.WriteAllText(path, csv.ToString(), Encoding.GetEncoding(1251));//не работает кодировка
@@ -366,124 +364,5 @@ namespace WpfDip
         {
             File.WriteAllText(path, JsonConvert.SerializeObject(issueList));
         }
-        /// <summary>
-        /// Метод для взаимодействия с пользователем
-        /// </summary>
-        //static void UserWork()
-        //{
-        //    bool errFlag = false;
-        //    int parCount = 0;
-        //    Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();//объявление словаря с ключами тип string и значением типа List<string>
-        //    string[] availablePar = { "1) summary", "2) key", "3) priority", "4) status", "5) statusChangeCount", "6) type", "7) created", "8) environment", "9) project", "10) assigneeuser", "11) reporteruser", "0) Получить результат" };//убрал описание
-        //    Program Start = new Program();
-
-        //    Console.WriteLine("Список доступных параметров: ");
-
-        //    foreach (var s in availablePar)
-        //        Console.WriteLine(s);
-
-        //    do
-        //    {
-        //        Console.WriteLine("Выберите параметры для фильтрации: ");
-        //        int id = 0;
-        //        try
-        //        {
-        //            id = Convert.ToInt32(Console.ReadLine());//выбор параметров
-        //        }
-        //        catch { }
-        //        if (id != 0 && id < 12)//проверка корректность выбора фильтра
-        //        {
-        //            var parName = availablePar[id - 1].Remove(0, 3);
-        //            string value = "";
-        //            while (value != "0")
-        //            {
-        //                Console.Write("Введите значение фильтра " + parName + " (0 - возврат к выбору параметров): ");
-        //                if (id == 5)//Доп.инструкция для подсчёта изменений статуса
-        //                {
-        //                    Console.WriteLine();
-        //                    Console.WriteLine("Введите статусы по следующей схеме: Статус изначальный - Статус измененный");
-        //                }
-        //                value = Console.ReadLine();
-        //                if (value == "0")
-        //                    break;
-
-        //                Console.WriteLine();
-        //                if (!filt.ContainsKey(parName))//проверка на существование ключа
-        //                {
-        //                    filt.Add(parName, new List<string> { value });
-        //                }
-        //                else
-        //                {
-        //                    filt[parName].Add(value);
-        //                }
-        //            }
-        //            parCount++;
-        //        }
-        //        else
-        //            break;
-        //    } while (parCount < 10);//проверка ввода
-        //    Console.WriteLine("Ввод окончен");
-        //    Console.WriteLine("Выполняется формирование списка задач, ждите");
-
-        //    var issueList = CreateIssuesList(filt);//формирование списка задач
-
-        //    do
-        //    {
-        //        errFlag = false;
-        //        Console.Write("В какой документ Вы хотите вывести информацию (1 - JSON, 2 - CSV, 0 - Выход): ");
-        //        int change = 0;
-        //        try
-        //        {
-        //            change = Convert.ToInt32(Console.ReadLine());
-        //        }
-        //        catch
-        //        {
-        //            Console.WriteLine("Поддерживается только цифровой ввод");
-        //            errFlag = true;
-        //            continue;
-        //        }
-        //        if (change.ToString().Contains("1") || change.ToString().Contains("2"))
-        //        {
-        //            if (change.ToString().Contains("1"))
-        //                JsonWork(issueList);
-        //            if (change.ToString().Contains("2"))
-        //                CSVWork(issueList);
-        //        }
-        //        else
-        //        {
-        //            if (change.ToString().Contains("0"))
-        //            {
-        //                Console.WriteLine("Остановка работы");
-        //                break;
-        //            }
-
-        //            Console.WriteLine("Вы не выбрали документ, попробуйте снова.");
-
-        //            errFlag = true;
-        //        }
-        //    } while (errFlag);
-
-        //}
-        //static void Main(string[] args)
-        //{
-        //    string anew;
-        //    UserWork();
-        //    do
-        //    {
-        //        Console.Write("Запустить программу заново? 1 - Да, Другое значение - Нет: ");
-        //        anew = Console.ReadLine().Trim();
-
-        //        if (anew == "1")
-        //        {
-        //            Console.WriteLine();
-        //            UserWork();
-        //        }
-
-        //    } while (anew == "1");
-        //    Console.WriteLine("Остановка программы");
-        //    Console.ReadKey();
-        //}
     }
-
-   
 }

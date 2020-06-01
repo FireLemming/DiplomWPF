@@ -27,11 +27,45 @@ namespace WpfDip
             InitializeComponent();
             type = Type;
             filt = Filt;
-            if (filt.ContainsKey("summary"))
+
+            if (filt.ContainsKey(type))
+                filt[type].ForEach(c => tbFilter.Text += c + "\n");
+
+
+            switch (type)
             {
-                filt["summary"].ForEach(c => tbFilter.Text += c +"\n");
-                lbHeader.Content = "Аннотация";
+                case "summary":
+                    lbHeader.Content = "Аннотация";
+                    break;
+                case "key":
+                    lbHeader.Content = "Ключ";
+                    break;
+                case "priority":
+                    lbHeader.Content = "Приоритет";
+                    break;
+                case "status":
+                    lbHeader.Content = "Статус";
+                    break;
+                case "type":
+                    lbHeader.Content = "Тип";
+                    break;
+                case "created":
+                    lbHeader.Content = "Время создания";
+                    break;
+                case "environment":
+                    lbHeader.Content = "Окружение";
+                    break;
+                case "project":
+                    lbHeader.Content = "Проект";
+                    break;
+                case "assigneeuser":
+                    lbHeader.Content = "Исполнитель";
+                    break;
+                case "reporteruser":
+                    lbHeader.Content = "Автор";
+                    break;
             }
+            
         }
 
 

@@ -121,8 +121,78 @@ namespace WpfDip
             bool check = (bool)cbSummary.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
             if (!OpenFilterWindow(check, type))
                 cbSummary.IsChecked = false;
-            
         }
-        
+
+        private void cbKey_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "key";
+            bool check = (bool)cbKey.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbPriority_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "priority";
+            bool check = (bool)cbPriority.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbStatus_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "status";
+            bool check = (bool)cbStatus.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbType_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "type";
+            bool check = (bool)cbType.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbCreated_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "created";
+            bool check = (bool)cbCreated.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbEnvironment_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "environment";
+            bool check = (bool)cbEnvironment.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbProject_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "project";
+            bool check = (bool)cbProject.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbAssigneeUser_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "assignieeuser";
+            bool check = (bool)cbAssigneeUser.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
+
+        private void cbReporterUser_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "reporteruser";
+            bool check = (bool)cbReporterUser.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+        }
     }
 }
