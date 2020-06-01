@@ -26,7 +26,7 @@
         <Button x:Name="btExportCSV" Content="CSV" Margin="0,0,215,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportCSV_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
         <Button x:Name="btExportJSON" Content="JSON" Margin="0,0,40,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportJSON_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
         <Button x:Name="btDel" Content="Удалить" Margin="0,0,470,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btDel_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2"/>
-        <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,30,58,485" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Checked="cbSummary_Checked"/>
+        <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,30,58,485" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbSummary_Click"/>
         <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,461" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
         <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,437" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
         <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,413" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>

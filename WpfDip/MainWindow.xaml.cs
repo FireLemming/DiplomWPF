@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,13 +23,47 @@ namespace WpfDip
     /// </summary>
     public partial class MainWindow : Window
     {
-        Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();
+        public static Dictionary<string, List<string>> filt = new Dictionary<string, List<string>>();
+        public static Dictionary<string, List<string>> filtBack = new Dictionary<string, List<string>>();
         Program prog = new Program();
         List<IssueWork> issueList = new List<IssueWork>();
         //string filtType = "";
         public MainWindow()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Метод для открытия окна выставления фильтров(нужен для сохранения страрых значений при снятии галочки)
+        /// </summary>
+        public bool OpenFilterWindow(bool check, string type)
+        {
+            if (check)//если чекбокс проставлен
+            {
+                if (filtBack.ContainsKey(type))//если ключ существует в резервном списке
+                {
+                    filt.Add(type, filtBack[type]);//довавление в список фильтров, заданных ранее
+                    //filtBack[type].Clear();//очистка резервного списка
+                    filtBack.Remove(type);//удавление ключа/очистка резервного списка
+                }
+                FilterWindow fw = new FilterWindow(filt, type);
+                this.Hide();
+                fw.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                if (filt.ContainsKey(type))//если существует ключ в основном словаре
+                {
+                    if (filtBack.ContainsKey(type))//если существует ключ в резервном словаре
+                        filtBack[type].AddRange(filt[type]);//Добавление значений словаря во второй словарь для хранения фильтров
+                    else
+                        filtBack.Add(type, filt[type]);
+                    filt.Remove(type);//удавление ключа/очистка основного списка
+                }
+            }
+            if (filtBack.Count == 0 && filt.Count == 0)
+                return false;//если фильтиры пустые - чекбокс отожмётся
+            else return true;
         }
 
         private void btView_Click(object sender, RoutedEventArgs e)
@@ -80,12 +115,14 @@ namespace WpfDip
             dgAll.ItemsSource = issueList;
         }
 
-        private void cbSummary_Checked(object sender, RoutedEventArgs e)
+        private void cbSummary_Click(object sender, RoutedEventArgs e)
         {
-            FilterWindow fw = new FilterWindow(filt, "summary");
-            this.Hide();
-            fw.ShowDialog();
-            this.Show();
+            string type = "summary";
+            bool check = (bool)cbSummary.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            if (!OpenFilterWindow(check, type))
+                cbSummary.IsChecked = false;
+            
         }
+        
     }
 }

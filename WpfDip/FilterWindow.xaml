@@ -18,6 +18,7 @@
         <TextBox x:Name="tbFilter" HorizontalAlignment="Left" Margin="530,38,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" VerticalAlignment="Top" Width="120" Height="258"/>
         <Button x:Name="btSave" Content="Сохранить" HorizontalAlignment="Center" Height="33" Grid.Row="1" VerticalAlignment="Center" Width="70" Background="{StaticResource GrayBlueGradientBrush}" Click="btSave_Click"/>
         <Label x:Name="lbText" Content="Введите значение фильтра" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="499,9,0,0" Grid.Row="1"/>
+        <Button x:Name="btClear" Content="Очитстить прошлые значения" HorizontalAlignment="Center" Height="66" Grid.Row="1" VerticalAlignment="Top" Width="179" Background="{StaticResource GrayBlueGradientBrush}" Click="btClear_Click" Margin="0,230,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
 
     </Grid>
 </Window>
