@@ -6,7 +6,7 @@ namespace WpfDip
 {
     public class IssueWork
     {
-        public IssueWork(string summary, string key, string priority, string status, string type, string created, string environment, string project, string assigneeUser, string reporterUser, string description, string statusChangeCount)
+        public IssueWork(string summary, string key, string priority, string status, string type, string created, string environment, string project, string assigneeUser, string reporterUser, string description, string paramChangeCount)
         {
             Summary = summary;
             Key = key;
@@ -19,7 +19,7 @@ namespace WpfDip
             AssigneeUser = assigneeUser;
             ReporterUser = reporterUser;
             Description = description;
-            StatusChangeCount = statusChangeCount;
+            ParamChangeCount = paramChangeCount;
         }
         public string Summary { get; set; }
         public string Key { get; set; }
@@ -32,6 +32,6 @@ namespace WpfDip
         public string ReporterUser { get; set; }
         public string AssigneeUser { get; set; }
         public string Description { get; set; }
-        public string StatusChangeCount { get; set; }
+        public string ParamChangeCount { get; set; }
     }
 }

@@ -273,14 +273,14 @@ namespace WpfDip
             }
             else parMas[10] = "Описание не задано";
 
-            parMas[11] = StatusChangeCountWork(c, filt);
+            parMas[11] = paramChangeCountWork(c, filt);
 
             return parMas;
         }
         /// <summary>
         /// Метод для подсчёта изменений статуса
         /// </summary>
-        static string StatusChangeCountWork (Atlassian.Jira.Issue c, Dictionary<string, List<string>> filt)
+        static string paramChangeCountWork (Atlassian.Jira.Issue c, Dictionary<string, List<string>> filt)
         {
             var changeLog = jiraLog.Issues.GetChangeLogsAsync(c.Key.ToString()).Result;
             int count = 0;
@@ -289,7 +289,7 @@ namespace WpfDip
             List<string> ListFromValue = new List<string>();
             List<string> ListToValue = new List<string>();
             List<string> ListStatusValue = new List<string>();
-            if (filt.ContainsKey("statusChangeCount"))
+            if (filt.ContainsKey("paramChangeCount"))
             {
                 foreach (var e in list)
                 {
@@ -302,7 +302,7 @@ namespace WpfDip
                         }
                     });
                 }
-                filt["statusChangeCount"].ForEach(t =>
+                filt["paramChangeCount"].ForEach(t =>
                 {
                     ListStatusValue.AddRange(t.Split('-'));//записываем изначальное и конечное значения в список
                     for (int i = 0; i < ListFromValue.Count(); i++)
@@ -336,7 +336,7 @@ namespace WpfDip
                     "AssigneeUser" + ";" +
                     "ReporterUser" + ";" +
                     "Description" + ";" +
-                    "StatusChangeCount");
+                    "paramChangeCount");
             foreach (var s in issueList)
             {
                 csv.AppendLine(Regex.Replace(s.Summary, @"\s+", " ") + ";" +
@@ -350,7 +350,7 @@ namespace WpfDip
                     Regex.Replace(s.AssigneeUser, @"\s+", " ") + ";" +
                     Regex.Replace(s.ReporterUser, @"\s+", " ") + ";" +
                     Regex.Replace(s.Description, @"\s+", " ") + ";" +
-                    Regex.Replace(s.StatusChangeCount, @"\s+", " "));
+                    Regex.Replace(s.ParamChangeCount, @"\s+", " "));
             }
 
             File.WriteAllText(path, csv.ToString(), Encoding.GetEncoding(1251));//не работает кодировка

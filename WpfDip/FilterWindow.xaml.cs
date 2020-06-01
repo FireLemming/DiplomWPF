@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Diagnostics.Eventing.Reader;
 
 namespace WpfDip
 {
@@ -28,8 +29,13 @@ namespace WpfDip
             type = Type;
             filt = Filt;
 
-            if (filt.ContainsKey(type))
+            if (filt.ContainsKey(type) && type != "paramchangecount")
                 filt[type].ForEach(c => tbFilter.Text += c + "\n");
+            else
+            {
+                tbFilter.Visibility = Visibility.Collapsed;
+
+            }
 
 
             switch (type)
@@ -63,6 +69,9 @@ namespace WpfDip
                     break;
                 case "reporteruser":
                     lbHeader.Content = "Автор";
+                    break;
+                case "paramchangecount":
+                    lbHeader.Content = "Счётсчик изменений параметров";
                     break;
             }
             

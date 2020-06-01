@@ -126,73 +126,81 @@ namespace WpfDip
         private void cbKey_Click(object sender, RoutedEventArgs e)
         {
             string type = "key";
-            bool check = (bool)cbKey.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbKey.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbKey.IsChecked = false;
         }
 
         private void cbPriority_Click(object sender, RoutedEventArgs e)
         {
             string type = "priority";
-            bool check = (bool)cbPriority.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbPriority.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbPriority.IsChecked = false;
         }
 
         private void cbStatus_Click(object sender, RoutedEventArgs e)
         {
             string type = "status";
-            bool check = (bool)cbStatus.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbStatus.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbStatus.IsChecked = false;
         }
 
         private void cbType_Click(object sender, RoutedEventArgs e)
         {
             string type = "type";
-            bool check = (bool)cbType.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbType.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbType.IsChecked = false;
         }
 
         private void cbCreated_Click(object sender, RoutedEventArgs e)
         {
             string type = "created";
-            bool check = (bool)cbCreated.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbCreated.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbCreated.IsChecked = false;
         }
 
         private void cbEnvironment_Click(object sender, RoutedEventArgs e)
         {
             string type = "environment";
-            bool check = (bool)cbEnvironment.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbEnvironment.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbEnvironment.IsChecked = false;
         }
 
         private void cbProject_Click(object sender, RoutedEventArgs e)
         {
             string type = "project";
-            bool check = (bool)cbProject.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbProject.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbProject.IsChecked = false;
         }
 
         private void cbAssigneeUser_Click(object sender, RoutedEventArgs e)
         {
             string type = "assignieeuser";
-            bool check = (bool)cbAssigneeUser.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbAssigneeUser.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbAssigneeUser.IsChecked = false;
         }
 
         private void cbReporterUser_Click(object sender, RoutedEventArgs e)
         {
             string type = "reporteruser";
-            bool check = (bool)cbReporterUser.IsChecked;//эти строки для каждово cb свои, а дальше вызов метода
+            bool check = (bool)cbReporterUser.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbSummary.IsChecked = false;
+                cbReporterUser.IsChecked = false;
+        }
+
+        private void cbParamChangeCount_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "paramchangecount";
+            bool check = (bool)cbParamChangeCount.IsChecked;
+            if (!OpenFilterWindow(check, type))
+                cbParamChangeCount.IsChecked = false;
         }
     }
 }
