@@ -286,31 +286,45 @@ namespace WpfDip
             int count = 0;
             var list = changeLog.ToList();
             list.Reverse();
-            List<string> ListFromValue = new List<string>();
-            List<string> ListToValue = new List<string>();
-            List<string> ListStatusValue = new List<string>();
-            if (filt.ContainsKey("paramChangeCount"))
+            List<string> ListFromValue = new List<string>();//лист начальных значений Jira
+            List<string> ListToValue = new List<string>();//лист конечных значений Jira
+            List<string> ListParam = new List<string>();//лист со списком параметров из фильтра
+            List<string> ListParamBuf = new List<string>();//лист со списком значений не разделенных параметров из фильтра
+            List<string> ListParamValue = new List<string>();//лист со списком значений разделенных параметров из фильтра
+            if (filt.ContainsKey("paramchangecount"))
             {
+                filt["paramchangecount"].ForEach(s =>
+                {
+                    ListParam.AddRange(s.Split(';'));//дробим список на значение(четные) и тип(нечетные)
+                    for(int i = 0; i < ListParam.Count; i++)
+                    {
+                        if (i % 2 == 0)
+                            ListParamBuf.Add(ListParam[i]);//Формируем список значений
+                    }
+                });
+                ListParam.RemoveAll(c => ListParamBuf.Contains(c));//удаляем из списка параметров из фильтра все значения данных параметров
+                ListParam = ListParam.Distinct().ToList();//удаляем все повторяющиеся значения, т.е. оставляем только одно значение - тип параметра
                 foreach (var e in list)
                 {
                     e.Items.ToList().ForEach(s =>
                     {
-                        if (s.FieldName.Contains("status"))
+                        if (s.FieldName.Contains(ListParam[0]))
                         {
-                            ListFromValue.Add(s.FromValue.ToLower()); //Заполнение списка изначальными значениями
-                            ListToValue.Add(s.ToValue.ToLower()); //Заполнение списка конечными значениями
+                            ListFromValue.Add(s.FromValue.ToLower().Replace(" ", "")); //Заполнение списка изначальными значениями
+                            ListToValue.Add(s.ToValue.ToLower().Replace(" ", "")); //Заполнение списка конечными значениями
                         }
                     });
                 }
-                filt["paramChangeCount"].ForEach(t =>
+                ListParamBuf.ForEach(t =>
                 {
-                    ListStatusValue.AddRange(t.Split('-'));//записываем изначальное и конечное значения в список
+
+                    ListParamValue.AddRange(t.Split('-'));//записываем изначальное и конечное значения в список
                     for (int i = 0; i < ListFromValue.Count(); i++)
                     {
-                        if (ListFromValue[i].Contains(ListStatusValue[0].ToLower().Trim()) && ListToValue[i].Contains(ListStatusValue[1].ToLower().Trim()))//проверка на то, что происходил переход статуса из изначального пользовательского значения в конечное
+                        if (ListFromValue[i].Contains(ListParamValue[0].ToLower().Trim()) && ListToValue[i].Contains(ListParamValue[1].ToLower().Trim()))//проверка на то, что происходил переход статуса из изначального пользовательского значения в конечное
                             count++;
                     }
-                    ListStatusValue.Clear();
+                    ListParamValue.Clear();
                 });
                 return count.ToString();
             }

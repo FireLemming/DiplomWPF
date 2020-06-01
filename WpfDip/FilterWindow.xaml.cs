@@ -21,20 +21,31 @@ namespace WpfDip
     public partial class FilterWindow : Window
     {
         string type;
+        string cbValue = "";
         Dictionary<string, List<string>> filt;
         List<string> parList = new List<string>();
+        List<string> initialList = new List<string>();
+        List<string> finalList = new List<string>();
+
         public FilterWindow(Dictionary<string, List<string>> Filt,string Type)
         {
             InitializeComponent();
             type = Type;
             filt = Filt;
 
-            if (filt.ContainsKey(type) && type != "paramchangecount")
+            if (filt.ContainsKey(type))// фильтр уже существует, заполнение значением
                 filt[type].ForEach(c => tbFilter.Text += c + "\n");
-            else
+            if (type == "paramchangecount")//отображение элементов для счётчика переходов параметров
             {
                 tbFilter.Visibility = Visibility.Collapsed;
+                lbTextFilt.Visibility = Visibility.Collapsed;
 
+                tbFinal.Visibility = Visibility.Visible;
+                lbInitialText.Visibility = Visibility.Visible;
+                lbFinalText.Visibility = Visibility.Visible;
+                cbParChange.Visibility = Visibility.Visible;
+                tbInitial.Visibility = Visibility.Visible;
+                tbFinal.Visibility = Visibility.Visible;
             }
 
 
@@ -76,29 +87,95 @@ namespace WpfDip
             }
             
         }
+        /// <summary>
+        /// Заполнение словаря при выборе подсчёта изменений параметра
+        /// </summary>
+        private void FillParamChangeCount()
+        {
+            if(cbParChange.SelectedIndex == -1)
+            {
+                MessageBox.Show("Выбирите, значения какого параметра задаются", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            tbInitial.Text = tbInitial.Text.Replace(" ", "");
+            tbFinal.Text = tbFinal.Text.Replace(" ", "");
+            initialList.AddRange(tbInitial.Text.Replace("\r", "").Split('\n'));//заполнение двух списков значениями из текстбоксов
+            finalList.AddRange(tbFinal.Text.Replace("\r", "").Split('\n'));
 
+            if (cbParChange.Text == "Статус")
+                cbValue = "status";
+            else cbValue = "priority";
+
+            if (initialList.Count > finalList.Count)
+                for (int i = 0; i < initialList.Count; i++)
+                {
+                    if (initialList[i] == null || finalList[i] == null)
+                    {
+                        if (initialList[i] == null)
+                            parList.Add("" + "-" + finalList[i] + ";" + cbValue);
+                        if (finalList[i] == null)
+                            parList.Add(initialList[i] + "-" + "" + ";" + cbValue);
+                    }
+                    else
+                        parList.Add(initialList[i] + "-" + finalList[i] + ";" + cbValue);
+                }
+            else
+                for (int i = 0; i < finalList.Count; i++)
+                {
+                    if (initialList[i] == null || finalList[i] == null)
+                    {
+                        if (initialList[i] == null)
+                            parList.Add("" + "-" + finalList[i] + ";" + cbValue);
+                        if (finalList[i] == null)
+                            parList.Add(initialList[i] + "-" + "" + ";" + cbValue);
+                    }
+                    else
+                        parList.Add(initialList[i] + "-" + finalList[i] + ";" + cbValue);
+                }
+            if (!filt.ContainsKey(type))
+                filt.Add(type, parList);
+            else
+                filt[type].AddRange(parList);
+            filt[type] = filt[type].Distinct().ToList();
+            this.Close();
+        }
 
         private void btSave_Click(object sender, RoutedEventArgs e)
         {
-            tbFilter.Text = tbFilter.Text.Replace(" ", "");
-            parList.AddRange(tbFilter.Text.Replace("\r", "").Split('\n'));//заполнение списка параметрами из текстбокса
-            parList.RemoveAll(c => c == "" || c==" ");
-            if (parList.Count != 0)
+            if (type == "paramchangecount")
+                FillParamChangeCount();
+            else
             {
-                if (!filt.ContainsKey(type))//проверка на не существование ключа
-                    filt.Add(type, parList);
-                else//ключ существует
-                    filt[type].AddRange(parList);
-                filt[type] = filt[type].Distinct().ToList();//удаление повторябщихся значений
+                tbFilter.Text = tbFilter.Text.Replace(" ", "");
+                parList.AddRange(tbFilter.Text.Replace("\r", "").Split('\n'));//заполнение списка параметрами из текстбокса
+                parList.RemoveAll(c => c == "" || c == " ");
+                if (parList.Count != 0)
+                {
+                    if (!filt.ContainsKey(type))//проверка на не существование ключа
+                        filt.Add(type, parList);
+                    else//ключ существует
+                        filt[type].AddRange(parList);
+                    filt[type] = filt[type].Distinct().ToList();//удаление повторябщихся значений
+                }
+                this.Close();
             }
-            
-            this.Close();
         }
 
         private void btClear_Click(object sender, RoutedEventArgs e)
         {
             tbFilter.Clear();
             filt.Remove(type);
+        }
+
+        private void cbParChange_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            tbParam.Visibility = Visibility.Visible;
+            cbParChange.Visibility = Visibility.Hidden;
+            if (cbParChange.SelectedIndex == 0)
+                cbValue = "Статуса";
+            else cbValue = "Приоритета";
+            tbParam.Text = "Подсчёт изменений" + "\n" + cbValue;
         }
     }
 }
