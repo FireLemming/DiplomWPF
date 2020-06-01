@@ -11,7 +11,7 @@ namespace WpfDip
 {
     public class Program
     {
-       
+
         public Program(string URL, string login, string APItoken)
         {
             jiraLog = JiraLogin(URL, login, APItoken);
@@ -44,8 +44,14 @@ namespace WpfDip
             foreach (var c in issues)
             {
                 parMas = FillingOutputArray(c, filt);//Вызов метода проверки на null
-                IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
-                issueList.Add(IssWork);//Добавление объекта в список
+                if (filt.ContainsKey("paramchangefilter"))
+                {
+                    if( Convert.ToInt32(parMas[11]) > MainWindow.countLimit)//Тест отбора по количеству переходов на этапе вывода
+                    {
+                        IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
+                        issueList.Add(IssWork);//Добавление объекта в список
+                    }
+                }
             }
             return issueList;
         }
@@ -197,7 +203,20 @@ namespace WpfDip
                 issuesList.Clear();
             }
 
+            //if (filt.ContainsKey("paramchangefilter"))//для подсчёта удалить
+            //{
+            //    issuesList.AddRange(
+            //        issues.Where(c =>
+            //        {
+            //            if (Convert.ToInt32(paramChangeCountWork(c, filt)) >= MainWindow.countLimit)
+            //                return true;
+            //            else return false;
+            //        }).ToList());
+            //    issues.Clear();
+            //    issues.AddRange(issuesList);
+            //    issuesList.Clear();
 
+            //}
 
             issuesList.AddRange(issues);
             return issuesList;
@@ -291,17 +310,30 @@ namespace WpfDip
             List<string> ListParam = new List<string>();//лист со списком параметров из фильтра
             List<string> ListParamBuf = new List<string>();//лист со списком значений не разделенных параметров из фильтра
             List<string> ListParamValue = new List<string>();//лист со списком значений разделенных параметров из фильтра
-            if (filt.ContainsKey("paramchangecount"))
+            if (filt.ContainsKey("paramchangecount") || filt.ContainsKey("paramchangefilter"))
             {
+                if(filt.ContainsKey("paramchangecount"))
                 filt["paramchangecount"].ForEach(s =>
                 {
                     ListParam.AddRange(s.Split(';'));//дробим список на значение(четные) и тип(нечетные)
-                    for(int i = 0; i < ListParam.Count; i++)
+                    for (int i = 0; i < ListParam.Count; i++)
                     {
                         if (i % 2 == 0)
                             ListParamBuf.Add(ListParam[i]);//Формируем список значений
                     }
                 });
+
+                if(filt.ContainsKey("paramchangefilter"))
+                    filt["paramchangefilter"].ForEach(s =>
+                    {
+                        ListParam.AddRange(s.Split(';'));//дробим список на значение(четные) и тип(нечетные)
+                        for (int i = 0; i < ListParam.Count; i++)
+                        {
+                            if (i % 2 == 0)
+                                ListParamBuf.Add(ListParam[i]);//Формируем список значений
+                        }
+                    });
+
                 ListParam.RemoveAll(c => ListParamBuf.Contains(c));//удаляем из списка параметров из фильтра все значения данных параметров
                 ListParam = ListParam.Distinct().ToList();//удаляем все повторяющиеся значения, т.е. оставляем только одно значение - тип параметра
                 foreach (var e in list)
@@ -329,7 +361,8 @@ namespace WpfDip
                 return count.ToString();
             }
             else
-                return "Пользователь не задал значения для подсчёта изменений статуса задачи";
+                //return "пользователь не задал значения для подсчёта изменений статуса задачи";
+                return "0";
         }
         /// <summary>
         /// Метод для экспорта CSV

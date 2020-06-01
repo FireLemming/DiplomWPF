@@ -37,7 +37,7 @@
         <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,292" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" />
         <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,268" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" />
         <CheckBox x:Name="cbParamChangeCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,244" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" />
-        <CheckBox x:Name="cbParamChangeFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,765,220" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" />
+        <CheckBox x:Name="cbParamChangeFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,765,220" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbParamChangeFilter_Click" />
         <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,6,0,6" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="20"/>
     </Grid>

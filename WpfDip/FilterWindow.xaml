@@ -31,5 +31,8 @@
             <TextBlock>Приоритет</TextBlock>
         </ComboBox>
         <TextBox x:Name="tbParam" HorizontalAlignment="Left" Height="80" Margin="354,128,0,0" Grid.Row="1" TextWrapping="Wrap"  AcceptsReturn="True" VerticalAlignment="Top" IsReadOnly="True" Width="108" FontSize="16" Visibility="Collapsed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="tbNum"  Margin="354,213,383,153" Text="0" Grid.Row="1" IsReadOnly="True" Visibility="Collapsed" />
+        <Button x:Name="btUp"  Margin="420,213,360,153" Content="˄" Click="btUp_Click" Grid.Row="1" Background="{StaticResource GrayBlueGradientBrush}" Visibility="Collapsed" />
+        <Button x:Name="btDown" Margin="442,213,338,153"  Content="˅" Click="btDown_Click" Grid.Row="1"  Background="{StaticResource GrayBlueGradientBrush}" Visibility="Collapsed" />
     </Grid>
 </Window>

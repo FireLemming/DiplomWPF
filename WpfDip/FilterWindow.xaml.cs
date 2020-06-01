@@ -26,7 +26,7 @@ namespace WpfDip
         List<string> parList = new List<string>();
         List<string> initialList = new List<string>();
         List<string> finalList = new List<string>();
-
+        int count = 0;
         public FilterWindow(Dictionary<string, List<string>> Filt,string Type)
         {
             InitializeComponent();
@@ -47,9 +47,25 @@ namespace WpfDip
                 tbInitial.Visibility = Visibility.Visible;
                 tbFinal.Visibility = Visibility.Visible;
             }
+            if (type == "paramchangefilter")
+            {
+                tbFilter.Visibility = Visibility.Collapsed;
+                lbTextFilt.Visibility = Visibility.Collapsed;
 
+                tbFinal.Visibility = Visibility.Visible;
+                lbInitialText.Visibility = Visibility.Visible;
+                lbFinalText.Visibility = Visibility.Visible;
+                cbParChange.Visibility = Visibility.Visible;
+                tbInitial.Visibility = Visibility.Visible;
+                tbFinal.Visibility = Visibility.Visible;
 
-            switch (type)
+                btUp.Visibility = Visibility.Visible;
+                btDown.Visibility = Visibility.Visible;
+                tbNum.Visibility = Visibility.Visible;
+
+            }
+
+                switch (type)
             {
                 case "summary":
                     lbHeader.Content = "Аннотация";
@@ -83,6 +99,9 @@ namespace WpfDip
                     break;
                 case "paramchangecount":
                     lbHeader.Content = "Счётсчик изменений параметров";
+                    break;
+                case "paramchangefilter":
+                    lbHeader.Content = "Фильтр изменений параметров";
                     break;
             }
             
@@ -137,12 +156,13 @@ namespace WpfDip
             else
                 filt[type].AddRange(parList);
             filt[type] = filt[type].Distinct().ToList();
+            MainWindow.countLimit = 1;
             this.Close();
         }
 
         private void btSave_Click(object sender, RoutedEventArgs e)
         {
-            if (type == "paramchangecount")
+            if (type == "paramchangecount" || type == "paramchangefilter")
                 FillParamChangeCount();
             else
             {
@@ -176,6 +196,19 @@ namespace WpfDip
                 cbValue = "Статуса";
             else cbValue = "Приоритета";
             tbParam.Text = "Подсчёт изменений" + "\n" + cbValue;
+        }
+
+        private void btUp_Click(object sender, RoutedEventArgs e)
+        {
+            count += 1;
+            tbNum.Text = count.ToString();
+        }
+
+        private void btDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (count > 0)
+                count -= 1;
+            tbNum.Text = count.ToString();
         }
     }
 }

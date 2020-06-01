@@ -27,7 +27,7 @@ namespace WpfDip
         public static Dictionary<string, List<string>> filtBack = new Dictionary<string, List<string>>();
         Program prog = new Program();
         List<IssueWork> issueList = new List<IssueWork>();
-        //string filtType = "";
+        public static int countLimit;
         public MainWindow()
         {
             InitializeComponent();
@@ -199,6 +199,14 @@ namespace WpfDip
         {
             string type = "paramchangecount";
             bool check = (bool)cbParamChangeCount.IsChecked;
+            if (!OpenFilterWindow(check, type))
+                cbParamChangeCount.IsChecked = false;
+        }
+
+        private void cbParamChangeFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string type = "paramchangefilter";
+            bool check = (bool)cbParamChangeFilter.IsChecked;
             if (!OpenFilterWindow(check, type))
                 cbParamChangeCount.IsChecked = false;
         }
