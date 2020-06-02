@@ -116,8 +116,8 @@ namespace WpfDip
                 MessageBox.Show("Выбирите, значения какого параметра задаются", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            tbInitial.Text = tbInitial.Text.Replace(" ", "");
-            tbFinal.Text = tbFinal.Text.Replace(" ", "");
+            tbInitial.Text = tbInitial.Text.Replace(" ", "").ToLower();
+            tbFinal.Text = tbFinal.Text.Replace(" ", "").ToLower();
             initialList.AddRange(tbInitial.Text.Replace("\r", "").Split('\n'));//заполнение двух списков значениями из текстбоксов
             finalList.AddRange(tbFinal.Text.Replace("\r", "").Split('\n'));
 
@@ -166,7 +166,7 @@ namespace WpfDip
                 FillParamChangeCount();
             else
             {
-                tbFilter.Text = tbFilter.Text.Replace(" ", "");
+                tbFilter.Text = tbFilter.Text.Replace(" ", "").ToLower();
                 parList.AddRange(tbFilter.Text.Replace("\r", "").Split('\n'));//заполнение списка параметрами из текстбокса
                 parList.RemoveAll(c => c == "" || c == " ");
                 if (parList.Count != 0)
