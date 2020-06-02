@@ -46,11 +46,18 @@ namespace WpfDip
                 parMas = FillingOutputArray(c, filt);//Вызов метода проверки на null
                 if (filt.ContainsKey("paramchangefilter"))
                 {
-                    if( Convert.ToInt32(parMas[11]) > MainWindow.countLimit)//Тест отбора по количеству переходов на этапе вывода
+                    if( Convert.ToInt32(parMas[11]) >= MainWindow.countLimit)//Тест отбора по количеству переходов на этапе вывода
                     {
                         IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
-                        issueList.Add(IssWork);//Добавление объекта в список
+                        issueList.Add(IssWork);
                     }
+                }
+                else
+                {
+                    if (parMas[11] == "0")
+                        parMas[11] = "Пользователь не задал параметр";
+                    IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
+                    issueList.Add(IssWork);//Добавление объекта в список
                 }
             }
             return issueList;

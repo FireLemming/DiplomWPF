@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDip"
         mc:Ignorable="d"
-        Title="Работа с задачами" Height="670" Width="1050" MinWidth="1050" MinHeight="670">
+        Title="Работа с задачами" Height="690" Width="1050" MinWidth="1050" MinHeight="690">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="210"></ColumnDefinition>
@@ -14,32 +14,40 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dgAll" Margin="30,10,30,20" Grid.Column="1"  Grid.Row="1">
+        <DataGrid x:Name="dgAll" Margin="15,10,10,20" Grid.Column="1"  Grid.Row="1" FontSize="18">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn x:Name="CheckBox"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btView" Content="Отобразить" Margin="0,0,341,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btView_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2"/>
-        <Button x:Name="btExportCSV" Content="CSV" Margin="0,0,215,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportCSV_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
-        <Button x:Name="btExportJSON" Content="JSON" Margin="0,0,40,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportJSON_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
-        <Button x:Name="btDel" Content="Удалить" Margin="0,0,470,10" Width="90" Height="34" Background="{StaticResource GrayBlueGradientBrush}" Click="btDel_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2"/>
-        <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,30,58,485" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbSummary_Click"/>
-        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,54,58,461" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbKey_Click" />
-        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,78,58,437" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbPriority_Click" />
-        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,102,58,413" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbStatus_Click" />
-        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,126,58,389" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbType_Click" />
-        <CheckBox x:Name="cbCreated" Content="Время создания" Grid.Column="0" Margin="10,150,58,365" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbCreated_Click" />
-        <CheckBox x:Name="cbEnvironment" Content="Окружение" Grid.Column="0" Margin="10,174,58,341" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbEnvironment_Click"/>
-        <CheckBox x:Name="cbProject" Content="Проект" Grid.Column="0" Margin="10,198,58,316" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbProject_Click"/>
-        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Grid.Column="0" Margin="10,223,58,292" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" />
-        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Grid.Column="0" Margin="10,247,58,268" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" />
-        <CheckBox x:Name="cbParamChangeCount" Content="Счётчик переходов параметров" Grid.Column="0" Margin="10,271,0,244" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" />
-        <CheckBox x:Name="cbParamChangeFilter" Content="Фильтр по переходам параметров" Grid.Column="0" Margin="10,295,765,220" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Click="cbParamChangeFilter_Click" />
-        <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,6,0,6" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="10,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="20"/>
+        <Button x:Name="btView" Content="Отобразить" Margin="0,0,457,10" Width="130" Height="50" Background="{StaticResource GrayBlueGradientBrush}" Click="btView_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="20"/>
+        <Button x:Name="btExportCSV"  Margin="0,0,233,10" Width="130" Height="50" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportCSV_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="20">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">Экспорт <LineBreak/> CSV</TextBlock>
+        </Button>
+        <Button x:Name="btExportJSON" Margin="0,0,10,10" Width="130" Height="50" Background="{StaticResource GrayBlueGradientBrush}" Click="btExportJSON_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="20">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center">Экспорт <LineBreak/> JSON</TextBlock>
+        </Button>
+        <Button x:Name="btDel" Content="Удалить" Margin="0,0,680,10" Width="130" Height="50" Background="{StaticResource GrayBlueGradientBrush}" Click="btDel_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" FontSize="20"/>
+        <CheckBox x:Name="cbSummary"  Content="Аннотация" Grid.Column="0" Margin="10,10,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbSummary_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" FontSize="18" Width="190"/>
+        <CheckBox x:Name="cbKey" Content="Ключ" Grid.Column="0" Margin="10,37,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbKey_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbPriority" Content="Приоритет" Grid.Column="0" Margin="10,64,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbPriority_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbStatus" Content="Статус" Grid.Column="0" Margin="10,95,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbStatus_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbType" Content="Тип" Grid.Column="0" Margin="10,129,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbType_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbCreated" Content="Время создания" Margin="0,163,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbCreated_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbEnvironment" Content="Окружение" Margin="0,197,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbEnvironment_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="18" Width="190"/>
+        <CheckBox x:Name="cbProject" Content="Проект" Margin="0,231,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbProject_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="18" Width="190"/>
+        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Margin="0,265,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Margin="0,299,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="18" Width="190" />
+        <CheckBox x:Name="cbParamChangeCount" Margin="0,333,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="18" Width="190">
+            <TextBlock TextAlignment="Left">Фильтр переходов <LineBreak/> параметров</TextBlock>
+        </CheckBox>
+        <CheckBox x:Name="cbParamChangeFilter" Margin="0,388,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeFilter_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="18" Width="190">
+            <TextBlock TextAlignment="Left">Фильтр по переходу <LineBreak/> параметров</TextBlock>
+        </CheckBox>
+        <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="15,0,10,0" Background="Transparent" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="32" HorizontalContentAlignment="Left"/>
     </Grid>
 
 </Window>

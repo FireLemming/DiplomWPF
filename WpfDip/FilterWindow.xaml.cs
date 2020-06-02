@@ -59,9 +59,9 @@ namespace WpfDip
                 tbInitial.Visibility = Visibility.Visible;
                 tbFinal.Visibility = Visibility.Visible;
 
-                btUp.Visibility = Visibility.Visible;
-                btDown.Visibility = Visibility.Visible;
-                tbNum.Visibility = Visibility.Visible;
+                btUpNum.Visibility = Visibility.Visible;
+                btDownNum.Visibility = Visibility.Visible;
+                tbNumericUpDown.Visibility = Visibility.Visible;
 
             }
 
@@ -156,7 +156,7 @@ namespace WpfDip
             else
                 filt[type].AddRange(parList);
             filt[type] = filt[type].Distinct().ToList();
-            MainWindow.countLimit = 1;
+            MainWindow.countLimit = count;
             this.Close();
         }
 
@@ -198,17 +198,17 @@ namespace WpfDip
             tbParam.Text = "Подсчёт изменений" + "\n" + cbValue;
         }
 
-        private void btUp_Click(object sender, RoutedEventArgs e)
+        private void btUpNum_Click(object sender, RoutedEventArgs e)
         {
             count += 1;
-            tbNum.Text = count.ToString();
+                tbNumericUpDown.Text = count.ToString();
         }
 
-        private void btDown_Click(object sender, RoutedEventArgs e)
+        private void btDownNum_Click(object sender, RoutedEventArgs e)
         {
             if (count > 0)
                 count -= 1;
-            tbNum.Text = count.ToString();
+            tbNumericUpDown.Text = count.ToString();
         }
     }
 }
