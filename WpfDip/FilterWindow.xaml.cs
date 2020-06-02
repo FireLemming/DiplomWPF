@@ -98,7 +98,7 @@ namespace WpfDip
                     lbHeader.Content = "Автор";
                     break;
                 case "paramchangecount":
-                    lbHeader.Content = "Счётсчик изменений параметров";
+                    lbHeader.Content = "Счётчик изменений параметров";
                     break;
                 case "paramchangefilter":
                     lbHeader.Content = "Фильтр изменений параметров";

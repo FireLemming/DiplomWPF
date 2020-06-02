@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="Окно экспорта" Height="250" Width="480" MinWidth="480" MinHeight="250" MaxWidth="480" MaxHeight="250">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="btExport" Content="Экспорт" Width="90" Height="34" HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" Grid.Row="1" Background="{StaticResource GrayBlueGradientBrush}" Click="btExport_Click" />
-        <Label x:Name="lbHeader" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="20"/>
+        <Border BorderThickness="0" BorderBrush="#19F3C4C4" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#FF0747A6" Margin="0,0,0,0"/>
+        <Border BorderThickness="0" BorderBrush="#19F3C4C4" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="#19003AFF" Margin="0,0,0,0"/>
+
+        <Button x:Name="btExport" Content="Экспорт" Width="90" Height="34" HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" Grid.Row="1" Background="{StaticResource GrayBlueGradientBrush}" Click="btExport_Click" Foreground="#FFF5F9FF" FontFamily="Adobe Caslon Pro Bold" />
+        <Label x:Name="lbHeader" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFF5F9FF" FontFamily="Adobe Caslon Pro Bold"/>
         <TextBox x:Name="tbPath" HorizontalAlignment="Left" Height="33" Margin="73,20,0,0" Grid.Row="1" Text="Введите путь и название файла" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" GotFocus="tbPath_GotFocus" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <Button x:Name="btFolder" Content="..." HorizontalAlignment="Left" Height="33" Margin="397,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="37" FontSize="20" Background="{StaticResource GrayBlueGradientBrush}" Click="btFolder_Click"/>
+        <Button x:Name="btFolder" Content="..." HorizontalAlignment="Left" Height="33" Margin="397,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="37" FontSize="20" Background="{StaticResource GrayBlueGradientBrush}" Click="btFolder_Click" Foreground="#FFF5F9FF" FontFamily="Adobe Caslon Pro Bold"/>
 
     </Grid>
 </Window>
