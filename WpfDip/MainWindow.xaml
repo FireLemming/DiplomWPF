@@ -48,15 +48,15 @@
         <CheckBox x:Name="cbProject" Content="Проект" Margin="0,281,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbProject_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold"/>
         <CheckBox x:Name="cbAssigneeUser" Content="Автор" Margin="0,323,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
         <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Margin="0,364,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
-        <CheckBox x:Name="cbParamChangeCount" Margin="0,405,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="62" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold">
-            <TextBlock TextAlignment="Left">Фильтр переходов <LineBreak/> параметров</TextBlock>
+        <CheckBox x:Name="cbParamChangeCount" Margin="0,473,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="62" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold">
+            <TextBlock TextAlignment="Left">Счётчик переходов <LineBreak/> параметров</TextBlock>
         </CheckBox>
-        <CheckBox x:Name="cbParamChangeFilter" Margin="10,472,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeFilter_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="63" FontSize="18" Width="210" FontFamily="Adobe Caslon Pro Bold" Grid.ColumnSpan="2">
+        <CheckBox x:Name="cbParamChangeFilter" Margin="10,405,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeFilter_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="63" FontSize="18" Width="210" FontFamily="Adobe Caslon Pro Bold" Grid.ColumnSpan="2">
             <TextBlock TextAlignment="Left">Фильтр по переходу <LineBreak/> параметров</TextBlock>
         </CheckBox>
         <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="15,0,10,0" Background="Transparent" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFF5F9FF" BorderBrush="Black" FontFamily="Adobe Caslon Pro Bold"/>
         <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="32" HorizontalContentAlignment="Left" Foreground="#FFF5F9FF" FontFamily="Adobe Caslon Pro Bold"/>
-        
+
     </Grid>
 
 </Window>
