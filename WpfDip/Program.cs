@@ -54,10 +54,10 @@ namespace WpfDip
                 }
                 else
                 {
-                    if (parMas[11] == "0")
-                        parMas[11] = "Пользователь не задал параметр";
-                    IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
-                    issueList.Add(IssWork);//Добавление объекта в список
+                    //if (parMas[11] == "0")
+                    //    parMas[11] = "Пользователь не задал параметр";
+                   IssWork = new IssueWork(parMas[0], parMas[1], parMas[2], parMas[3], parMas[4], parMas[5], parMas[6], parMas[7], parMas[8], parMas[9], parMas[10], parMas[11]);
+                   issueList.Add(IssWork);//Добавление объекта в список
                 }
             }
             return issueList;
@@ -368,8 +368,7 @@ namespace WpfDip
                 return count.ToString();
             }
             else
-                //return "пользователь не задал значения для подсчёта изменений статуса задачи";
-                return "0";
+                return "Пользователь не задал значения";
         }
         /// <summary>
         /// Метод для экспорта CSV

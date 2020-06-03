@@ -18,9 +18,11 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
+
+
         <Border BorderThickness="0" BorderBrush="#19F3C4C4" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="#FF0747A6" Margin="0,0,0,0"/>
         <Border BorderThickness="0" BorderBrush="#19F3C4C4" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="#19003AFF" Margin="0,0,0,0"/>
-
+        <Border BorderThickness="1" BorderBrush="#19F3C4C4"  Grid.Column="0" Grid.Row="0" Margin="224,0,-16,0"/>
 
         <DataGrid x:Name="dgAll" Margin="15,0,10,20" Grid.Column="1"  Grid.Row="1" FontSize="18" Background="#FFF5F8FF">
             <DataGrid.Columns>
@@ -44,7 +46,7 @@
         <CheckBox x:Name="cbCreated" Content="Время создания" Margin="0,197,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbCreated_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
         <CheckBox x:Name="cbEnvironment" Content="Окружение" Margin="0,239,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbEnvironment_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold"/>
         <CheckBox x:Name="cbProject" Content="Проект" Margin="0,281,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbProject_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold"/>
-        <CheckBox x:Name="cbAssigneeUser" Content="Создатель" Margin="0,323,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
+        <CheckBox x:Name="cbAssigneeUser" Content="Автор" Margin="0,323,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbAssigneeUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
         <CheckBox x:Name="cbReporterUser" Content="Испольнитель" Margin="0,364,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbReporterUser_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold" />
         <CheckBox x:Name="cbParamChangeCount" Margin="0,405,0,0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Click="cbParamChangeCount_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Height="62" FontSize="18" Width="190" FontFamily="Adobe Caslon Pro Bold">
             <TextBlock TextAlignment="Left">Фильтр переходов <LineBreak/> параметров</TextBlock>
@@ -54,6 +56,7 @@
         </CheckBox>
         <Label x:Name="lbTable" Content="Таблица задач" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="15,0,10,0" Background="Transparent" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFF5F9FF" BorderBrush="Black" FontFamily="Adobe Caslon Pro Bold"/>
         <Label x:Name="lbParam" Content="Параметры" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="2,0,10,0" VerticalAlignment="Center" Background="Transparent" FontSize="32" HorizontalContentAlignment="Left" Foreground="#FFF5F9FF" FontFamily="Adobe Caslon Pro Bold"/>
+        
     </Grid>
 
 </Window>
