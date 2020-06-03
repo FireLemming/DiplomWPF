@@ -68,8 +68,14 @@ namespace WpfDip
 
         private void btView_Click(object sender, RoutedEventArgs e)
         {
-            issueList.AddRange(prog.CreateIssuesList(filt));
+            issueList.Clear();
+            dgAll.ItemsSource = null;
+            dgAll.Items.Refresh();
+
+            issueList.AddRange(prog.CreateIssuesList(filt));            
             dgAll.ItemsSource = issueList;
+            
+
             MessageBox.Show("Выборка задач завершена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
