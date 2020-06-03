@@ -22,10 +22,7 @@ namespace WpfDip
     {
         string type;
         List<IssueWork> issueList;
-        //public ExportWindow()
-        //{
-        //    InitializeComponent();
-        //}
+
         public ExportWindow(List<IssueWork> IssueList, string Type)
         {
             InitializeComponent();

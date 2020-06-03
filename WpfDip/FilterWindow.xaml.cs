@@ -35,6 +35,7 @@ namespace WpfDip
 
             if (filt.ContainsKey(type))// фильтр уже существует, заполнение значением
                 filt[type].ForEach(c => tbFilter.Text += c + "\n");
+
             if (type == "paramchangecount")//отображение элементов для счётчика переходов параметров
             {
                 tbFilter.Visibility = Visibility.Collapsed;
@@ -46,6 +47,7 @@ namespace WpfDip
                 cbParChange.Visibility = Visibility.Visible;
                 tbInitial.Visibility = Visibility.Visible;
                 tbFinal.Visibility = Visibility.Visible;
+                FillParamChange();
             }
             if (type == "paramchangefilter")
             {
@@ -62,7 +64,7 @@ namespace WpfDip
                 btUpNum.Visibility = Visibility.Visible;
                 btDownNum.Visibility = Visibility.Visible;
                 tbNumericUpDown.Visibility = Visibility.Visible;
-
+                FillParamChange();
             }
 
                 switch (type)
@@ -91,7 +93,7 @@ namespace WpfDip
                 case "project":
                     lbHeader.Content = "Проект";
                     break;
-                case "assigneeuser":
+                case "assignieeuser":
                     lbHeader.Content = "Исполнитель";
                     break;
                 case "reporteruser":
@@ -104,8 +106,30 @@ namespace WpfDip
                     lbHeader.Content = "Фильтр изменений параметров";
                     break;
             }
-            
         }
+
+        /// <summary>
+        /// Заполнение полей при повторном выборе чекбокса
+        /// </summary>
+        private void FillParamChange()
+        {
+            List<string> buf = new List<string>();
+            if (filt.ContainsKey(type))// фильтр уже существует, заполнение значением
+                filt[type].ForEach(c =>
+                {
+                    buf.AddRange(c.Split('-'));
+                    buf.AddRange(buf[1].Split(';'));
+
+                    tbInitial.Text += buf[0].Trim() + "\n";
+                    tbFinal.Text += buf[2] + "\n";
+                    if (buf[3] == "status")
+                        cbParChange.SelectedIndex = 0;
+                    else cbParChange.SelectedIndex = 1;
+
+                    buf.Clear();
+                });
+        }
+
         /// <summary>
         /// Заполнение словаря при выборе подсчёта изменений параметра
         /// </summary>
@@ -184,6 +208,13 @@ namespace WpfDip
         private void btClear_Click(object sender, RoutedEventArgs e)
         {
             tbFilter.Clear();
+            if (type == "paramchangecount" || type == "paramchangefilter")
+            {
+                tbInitial.Clear();
+                tbFinal.Clear();
+                tbParam.Visibility = Visibility.Collapsed;
+                cbParChange.Visibility = Visibility.Visible;
+            }
             filt.Remove(type);
         }
 

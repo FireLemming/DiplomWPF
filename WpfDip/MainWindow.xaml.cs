@@ -208,7 +208,7 @@ namespace WpfDip
             string type = "paramchangefilter";
             bool check = (bool)cbParamChangeFilter.IsChecked;
             if (!OpenFilterWindow(check, type))
-                cbParamChangeCount.IsChecked = false;
+                cbParamChangeFilter.IsChecked = false;
         }
     }
 }

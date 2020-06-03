@@ -32,7 +32,7 @@
             <TextBlock>Статус</TextBlock>
             <TextBlock>Приоритет</TextBlock>
         </ComboBox>
-        <TextBox x:Name="tbParam" HorizontalAlignment="Left" Height="80" Margin="354,128,0,0" Grid.Row="1" TextWrapping="Wrap"  AcceptsReturn="True" VerticalAlignment="Top" IsReadOnly="True" Width="108" FontSize="16" Visibility="Collapsed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="tbParam" HorizontalAlignment="Left" Height="80" Margin="342,120,0,0" Grid.Row="1" TextWrapping="Wrap"  AcceptsReturn="True" VerticalAlignment="Top" IsReadOnly="True" Width="100" FontSize="16" Visibility="Collapsed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
 
         <TextBox x:Name="tbNumericUpDown" HorizontalAlignment="Left" Height="30" Margin="347,207,0,0" Grid.Row="1" TextWrapping="Wrap"  AcceptsReturn="True" VerticalAlignment="Top" IsReadOnly="True" Width="46" FontSize="16" Visibility="Collapsed" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
