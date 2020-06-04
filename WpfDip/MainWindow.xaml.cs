@@ -42,13 +42,10 @@ namespace WpfDip
                 if (filtBack.ContainsKey(type))//если ключ существует в резервном списке
                 {
                     filt.Add(type, filtBack[type]);//довавление в список фильтров, заданных ранее
-                    //filtBack[type].Clear();//очистка резервного списка
                     filtBack.Remove(type);//удавление ключа/очистка резервного списка
                 }
                 FilterWindow fw = new FilterWindow(filt, type);
-                this.Hide();
                 fw.ShowDialog();
-                this.Show();
             }
             else
             {
@@ -84,9 +81,7 @@ namespace WpfDip
             if (dgAll.Items.Count > 0)
             {
                 ExportWindow ew = new ExportWindow(issueList, "csv");
-                this.Hide();
                 ew.ShowDialog();
-                this.Show();
             }
             else MessageBox.Show("Сначала выберите задачи", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
         }
@@ -96,9 +91,7 @@ namespace WpfDip
             if (dgAll.Items.Count > 0)
             {
                 ExportWindow ew = new ExportWindow(issueList, "json");
-                this.Hide();
                 ew.ShowDialog();
-                this.Show();
             }
             else MessageBox.Show("Сначала выберите задачи", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
         }        

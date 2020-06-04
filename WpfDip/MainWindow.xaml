@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDip"
         mc:Ignorable="d"
-        Title="Работа с задачами" Height="705" Width="1050" MinWidth="1050" MinHeight="705"
+        WindowStartupLocation="CenterScreen"
+        Title="Работа с задачами" Height="705" Width="1050" MinWidth="1050" MinHeight="705" Icon="/app-icon-jira.png"
         >
 
     <Grid MinWidth="1030" MinHeight="670" >

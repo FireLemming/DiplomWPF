@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDip"
         mc:Ignorable="d"
-        Title="Создание фильтра" Height="500" Width="800" MinHeight="500" MaxHeight="500" MinWidth="800" MaxWidth="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Создание фильтра" Height="500" Width="800" MinHeight="500" MaxHeight="500" MinWidth="800" MaxWidth="800" Icon="/app-icon-jira.png">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDip"
         mc:Ignorable="d"
-        Title="Окно экспорта" Height="250" Width="480" MinWidth="480" MinHeight="250" MaxWidth="480" MaxHeight="250">
+        WindowStartupLocation="CenterScreen"
+        Title="Экспорт" Height="250" Width="480" MinWidth="480" MinHeight="250" MaxWidth="480" MaxHeight="250" Icon="/app-icon-jira.png">
     <Grid>
 
         <Grid.RowDefinitions>
