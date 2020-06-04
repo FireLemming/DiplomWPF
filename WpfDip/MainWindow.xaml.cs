@@ -100,7 +100,12 @@ namespace WpfDip
         {
             CheckBox cb = new CheckBox();
             List<IssueWork> RemoveList = new List<IssueWork>();
-
+            if (dgAll.ItemsSource == null)//проверка таблицы на пустоту
+            {
+                MessageBox.Show("Удаление невозмножно, таблица пуста", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            
             foreach (var s in dgAll.ItemsSource)
             {
                 cb = dgAll.Columns[0].GetCellContent(s) as CheckBox;

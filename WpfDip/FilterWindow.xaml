@@ -27,8 +27,8 @@
 
         <TextBox x:Name="tbInitial"  HorizontalAlignment="Left" TextAlignment="Center" Height="258" Margin="40,38,0,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="300" Visibility="Collapsed"/>
         <TextBox x:Name="tbFinal" HorizontalAlignment="Right" TextAlignment="Center" Height="258" Margin="0,38,40,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="300" Visibility="Collapsed"/>
-        <Label x:Name="lbInitialText" Content="Введите значение фильтра" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="55,4,0,0" Grid.Row="1" Visibility="Collapsed" FontFamily="Adobe Caslon Pro Bold"/>
-        <Label x:Name="lbFinalText" Content="Введите значение фильтра" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,4,55,0" Visibility="Collapsed" FontFamily="Adobe Caslon Pro Bold" Grid.Row="1"/>
+        <Label x:Name="lbInitialText" Content="Введите изначальное значение" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="34,4,0,0" Grid.Row="1" Visibility="Collapsed" FontFamily="Adobe Caslon Pro Bold"/>
+        <Label x:Name="lbFinalText" Content="Введите конечное значение" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,4,64.5,0" Visibility="Collapsed" FontFamily="Adobe Caslon Pro Bold" Grid.Row="1"/>
         <ComboBox x:Name="cbParChange" HorizontalAlignment="Center" Height="28" Margin="0,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" IsReadOnly="True" FontSize="16" SelectionChanged="cbParChange_SelectionChanged" Visibility="Collapsed" Background="{StaticResource GrayBlueGradientBrush}" >
             <TextBlock>Статус</TextBlock>
             <TextBlock>Приоритет</TextBlock>
