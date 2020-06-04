@@ -108,16 +108,19 @@ namespace WpfDip
             CheckBox cb = new CheckBox();
             List<IssueWork> RemoveList = new List<IssueWork>();
 
-            foreach(var s in dgAll.ItemsSource)
+            foreach (var s in dgAll.ItemsSource)
             {
                 cb = dgAll.Columns[0].GetCellContent(s) as CheckBox;
-                if ((bool)cb.IsChecked)
-                {
-                    RemoveList.Add(s as IssueWork);
-                }
+
+                if(cb!=null)
+                    if ((bool)cb.IsChecked)
+                    {
+                        RemoveList.Add(s as IssueWork);
+                    }
             }
             issueList.RemoveAll(c => RemoveList.Contains(c));
             dgAll.ItemsSource = null;
+            dgAll.Items.Refresh();
             dgAll.ItemsSource = issueList;
         }
 

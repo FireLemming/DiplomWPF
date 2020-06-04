@@ -25,9 +25,7 @@ namespace WpfDip
         /// </summary>
         public Atlassian.Jira.Jira JiraLogin(string URL, string login, string APItoken)
         {
-            bool errLogFlag = false;
-            Atlassian.Jira.Jira jiraLog = null;
-            jiraLog = Atlassian.Jira.Jira.CreateRestClient(new Atlassian.Jira.Remote.JiraRestClient(URL, login, APItoken));
+            Atlassian.Jira.Jira jiraLog = Atlassian.Jira.Jira.CreateRestClient(new Atlassian.Jira.Remote.JiraRestClient(URL, login, APItoken));
             var URLserv = jiraLog.ServerInfo.GetServerInfoAsync().Result.BaseUrl;
             return jiraLog;
         }
